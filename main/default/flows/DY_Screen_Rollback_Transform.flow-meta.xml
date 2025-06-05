@@ -2675,7 +2675,7 @@
             <targetReference>h_dfaf4881c0bc3e8ab8f470860ed0b7eb_PostPreLog</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <description>Pharos Flow Template for Log After: Get Account with AR 55, Before: Delete Account</description>
         <name>h_04ae632bf675c150985a8946e354c152_Pharos_Template</name>
