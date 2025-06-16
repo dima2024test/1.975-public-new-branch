@@ -8,7 +8,7 @@ global class CreateAccountsBatch implements Database.Batchable<SObject> {
         List<Account> newAccounts = new List<Account>();
 
         // Создаем 2000 аккаунтов
-        for (Integer i = 0; i < 2000; i++) {
+        for (Integer i = 0; i < 10000; i++) {
             Account newAccount = new Account();
             newAccount.Name = 'Account ' + (i + 1); // Название аккаунта
             newAccounts.add(newAccount);
