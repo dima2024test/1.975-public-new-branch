@@ -769,7 +769,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <description>Pharos Flow Template for Log After: Get Account, Before: Assign Name</description>
         <name>h_0f53e1a86cb63aa3d9ba06babad4527f_Pharos_Template</name>
