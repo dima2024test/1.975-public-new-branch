@@ -4,65 +4,24 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
     }
 
     global void execute(Database.BatchableContext BC, List<SObject> scope) {
-        try {
-      
-            Integer i = 2 / 0;
-        } catch (Exception e) {
-            for (Integer j = 0; j < 1900; j++) {
-                Triton.instance.addError(TritonTypes.Area.Accounts, e);
-            }
-            Triton.instance.flush();
+        // Повторить логику несколько раз
+        for (Integer k = 0; k < 20; k++) { // Например, 5 раз
+            executeLogic();
         }
-        
+    }
+
+    private void executeLogic() {
         try {
-      
-            Integer i = 2 / 0;
+            Integer i = 2 / 0; // Деление на ноль для генерации исключения
         } catch (Exception e) {
-            for (Integer j = 0; j < 1900; j++) {
-                Triton.instance.addError(TritonTypes.Area.Accounts, e);
-            }
-            Triton.instance.flush();
-        }
-        try {
-      
-            Integer i = 2 / 0;
-        } catch (Exception e) {
-            for (Integer j = 0; j < 1900; j++) {
-                Triton.instance.addError(TritonTypes.Area.Accounts, e);
-            }
-            Triton.instance.flush();
-        }
-        try {
-      
-            Integer i = 2 / 0;
-        } catch (Exception e) {
-            for (Integer j = 0; j < 1900; j++) {
-                Triton.instance.addError(TritonTypes.Area.Accounts, e);
-            }
-            Triton.instance.flush();
-        }
-        try {
-      
-            Integer i = 2 / 0;
-        } catch (Exception e) {
-            for (Integer j = 0; j < 1900; j++) {
-                Triton.instance.addError(TritonTypes.Area.Accounts, e);
-            }
-            Triton.instance.flush();
-        }
-        try {
-      
-            Integer i = 2 / 0;
-        } catch (Exception e) {
-            for (Integer j = 0; j < 1900; j++) {
+            for (Integer j = 0; j < 501; j++) {
                 Triton.instance.addError(TritonTypes.Area.Accounts, e);
             }
             Triton.instance.flush();
         }
     }
-    
 
     global void finish(Database.BatchableContext BC) {
-        System.debug('Test');
+        System.debug('Обработка завершена.');
     }
 }
