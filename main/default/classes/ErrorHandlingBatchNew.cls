@@ -24,3 +24,4 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
         System.debug('Test');
     }
 }
+//test
