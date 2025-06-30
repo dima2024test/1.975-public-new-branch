@@ -4,7 +4,7 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
     }
 
     global void execute(Database.BatchableContext BC, List<SObject> scope) {
-        for (Integer k = 0; k < 4; k++) {
+        for (Integer k = 0; k < 1; k++) {
             executeLogic();
         }
     }
