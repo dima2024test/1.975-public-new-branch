@@ -13,10 +13,12 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
         try {
             Integer i = 2 / 0;
         } catch (Exception e) {
-            for (Integer j = 0; j < 60; j++) {
+            for (Integer j = 0; j < 5; j++) {
+               
                 Triton.instance.addError(TritonTypes.Area.Accounts, e);
+                Triton.instance.flush();
             }
-            Triton.instance.flush();
+            
         }
     }
 
@@ -24,4 +26,3 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
         System.debug('Test');
     }
 }
-//test
