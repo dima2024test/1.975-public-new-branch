@@ -4,7 +4,7 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
     }
 
     global void execute(Database.BatchableContext BC, List<SObject> scope) {
-        for (Integer k = 0; k < 10; k++) {
+        for (Integer k = 0; k < 1; k++) {
             executeLogic();
         }
     }
@@ -21,14 +21,22 @@ global class ErrorHandlingBatchNew implements Database.Batchable<SObject> {
         } catch (Exception e) {
             // Генерация случайного количества добавляемых ошибок от 1 до 3
             Integer errorCount = (Integer)(Math.random() * 3) + 1; 
+            Integer jobsQueued = 0; // Счетчик добавленных задач
+
             for (Integer j = 0; j < errorCount; j++) {
-                // Генерация случайного типа ошибки
-                if (Math.random() < 1) {
-                    // Добавляем основную ошибку в новую транзакцию
-                    System.enqueueJob(new ErrorQueueable(e));
+                // Проверяем, добавлено ли менее 50 задач
+                if (jobsQueued < 50) { 
+                    // Генерация случайного типа ошибки
+                    if (Math.random() < 1) {
+                        // Добавляем основную ошибку в новую транзакцию
+                        System.enqueueJob(new ErrorQueueable(e));
+                    } else {
+                        // Добавляем пользовательскую случайную ошибку в новую транзакцию
+                        System.enqueueJob(new ErrorQueueable(new CustomException('Случайная ошибка ' + j)));
+                    }
+                    jobsQueued++; // Увеличиваем счетчик добавленных задач
                 } else {
-                    // Добавляем пользовательскую случайную ошибку в новую транзакцию
-                    System.enqueueJob(new ErrorQueueable(new CustomException('Случайная ошибка ' + j)));
+                    break; // Если достигнуто ограничение, выходим из цикла
                 }
             }
         }
