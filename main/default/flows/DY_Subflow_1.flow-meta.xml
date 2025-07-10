@@ -59,7 +59,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>TEst_44</targetReference>
+                <targetReference>Create_Opp</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -89,7 +89,7 @@
         <name>Create_Opp</name>
         <label>Create Opp</label>
         <locationX>50</locationX>
-        <locationY>866</locationY>
+        <locationY>758</locationY>
         <inputAssignments>
             <field>CloseDate</field>
         </inputAssignments>
@@ -147,16 +147,6 @@
         </connector>
     </start>
     <status>Active</status>
-    <subflows>
-        <name>TEst_44</name>
-        <label>TEst 44</label>
-        <locationX>50</locationX>
-        <locationY>758</locationY>
-        <connector>
-            <targetReference>Create_Opp</targetReference>
-        </connector>
-        <flowName>test</flowName>
-    </subflows>
     <variables>
         <name>AnnualR</name>
         <dataType>Number</dataType>
