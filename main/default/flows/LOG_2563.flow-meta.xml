@@ -45,7 +45,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Testtest</name>
         <label>Test</label>
